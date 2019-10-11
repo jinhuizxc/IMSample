@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.base.BaseActivity;
 
@@ -78,15 +79,15 @@ public class PassWordActivity extends BaseActivity {
                         @Override
                         public void gotResult(int i, String s) {
                             if (i == 0) {
-                                showToast(PassWordActivity.this, "修改成功");
+                                ToastUtils.showShort("修改成功");
                                 startActivity(new Intent(PassWordActivity.this, LoginActivity.class));
                             } else {
-                                showLongToast(PassWordActivity.this, "修改失败：" + s);
+                                ToastUtils.showShort("修改失败：" + s);
                             }
                         }
                     });
                 } else {
-                    showToast(PassWordActivity.this, "两次输入的密码不一致");
+                    ToastUtils.showShort("两次输入的密码不一致");
                 }
                 break;
         }

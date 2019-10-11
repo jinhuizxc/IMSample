@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.adapter.AddSearchAdapter;
 import com.example.imsample.base.BaseActivity;
@@ -103,7 +104,7 @@ public class AddFriendsActivity extends BaseActivity {
                             }
                             startActivity(intent);
                         } else {
-                            showToast(AddFriendsActivity.this, "未找到用户");
+                            ToastUtils.showShort("未找到用户");
                         }
                     }
                 });
@@ -258,7 +259,7 @@ public class AddFriendsActivity extends BaseActivity {
                             }
                             startActivity(intent);
                         } else {
-                            showToast(AddFriendsActivity.this, "未找到用户");
+                            ToastUtils.showShort("未找到用户");
                         }
                     }
                 });

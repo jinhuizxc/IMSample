@@ -286,6 +286,7 @@ public class ChatMsgActivity extends BaseActivity implements ChatView.OnSizeChan
                     message = new MyMessage(((PromptContent) conversation.getAllMessage().get(i).getContent()).getPromptText(), IMessage.MessageType.RECEIVE_TEXT);
 
                 } else {
+                    //   TODO Caused by: java.lang.ClassCastException: cn.jpush.im.android.api.content.CustomContent cannot be cast to cn.jpush.im.android.api.content.TextContent
                     message = new MyMessage(((TextContent) conversation.getAllMessage().get(i).getContent()).getText(), IMessage.MessageType.RECEIVE_TEXT);
                 }
                 message.setUserInfo(new DefaultUser(JMessageClient.getMyInfo().getUserName(), "DeadPool", (StringUtils.isNull(imgRecrive)) ? "R.drawable.ironman" : imgRecrive));
@@ -429,7 +430,7 @@ public class ChatMsgActivity extends BaseActivity implements ChatView.OnSizeChan
                         startActivity(intent);
                     }
                 } else {
-                    showToast(ChatMsgActivity.this, "点击了消息");
+                    ToastUtils.showShort("点击了消息");
                 }
             }
         });
@@ -481,10 +482,9 @@ public class ChatMsgActivity extends BaseActivity implements ChatView.OnSizeChan
                                             clip.getText();
                                         }
                                     }
-
-                                    showToast(ChatMsgActivity.this, "复制成功");
+                                    ToastUtils.showShort("复制成功");
                                 } else {
-                                    showToast(ChatMsgActivity.this, "复制类型错误");
+                                    ToastUtils.showShort("复制类型错误");
                                 }
                                 break;
 
@@ -494,7 +494,7 @@ public class ChatMsgActivity extends BaseActivity implements ChatView.OnSizeChan
                                     @Override
                                     public void gotResult(int i, String s) {
                                         if (i == 0) {
-                                            showToast(ChatMsgActivity.this, "撤回了一条消息");
+                                            ToastUtils.showShort("撤回了一条消息");
                                             mAdapter.deleteById(message.getMsgId());
 //                                            MyMessage myMessage = new MyMessage("", SEND_TEXT);
 //                                            message.setTimeString("[你撤回了一条消息]");
@@ -502,7 +502,7 @@ public class ChatMsgActivity extends BaseActivity implements ChatView.OnSizeChan
                                             mAdapter.updateMessage(message);
 //                                            mAdapter.notifyDataSetChanged();
                                         } else {
-                                            showToast(ChatMsgActivity.this, "撤回失败：" + s);
+                                            ToastUtils.showShort("撤回失败：" + s);
                                         }
                                     }
                                 });

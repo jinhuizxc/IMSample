@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.base.BaseActivity;
 import com.example.imsample.framework.helper.SharedPrefHelper;
@@ -112,10 +113,10 @@ public class AddFriendMsgActivity extends BaseActivity {
                         @Override
                         public void gotResult(int i, String s) {
                             if (i==0){
-                                showToast(AddFriendMsgActivity.this, "发送成功");
+                                ToastUtils.showShort("发送成功");
                                 finish();
                             }else {
-                                showToast(AddFriendMsgActivity.this, "发送失败:"+s);
+                                ToastUtils.showShort("发送失败:"+s);
                                 Log.e("id====", getIntent().getStringExtra("ID"));
                             }
                         }

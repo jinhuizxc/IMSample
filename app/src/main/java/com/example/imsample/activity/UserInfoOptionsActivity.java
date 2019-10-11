@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.base.BaseActivity;
 
@@ -100,7 +101,7 @@ public class UserInfoOptionsActivity extends BaseActivity {
                                     @Override
                                     public void gotResult(int i, String s) {
                                         if (i==0){
-                                            showToast(UserInfoOptionsActivity.this,"删除成功");
+                                            ToastUtils.showShort("删除成功");
                                             //同时删除会话
                                             JMessageClient.deleteSingleConversation(info.getUserName());
                                             Intent intent=new Intent(UserInfoOptionsActivity.this, MainActivity.class);
@@ -108,7 +109,7 @@ public class UserInfoOptionsActivity extends BaseActivity {
                                             startActivity(intent);
 
                                         }else {
-                                            showToast(UserInfoOptionsActivity.this,"删除失败"+s);
+                                            ToastUtils.showShort("删除失败"+s);
                                         }
                                     }
                                 });

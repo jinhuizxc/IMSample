@@ -10,6 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.base.BaseActivity;
 import com.example.imsample.view.MyFloatingActionButton;
@@ -75,7 +76,7 @@ public class WebViewActivity extends BaseActivity {
 
     @OnClick(R.id.web_bt)
     public void onViewClicked() {
-        showToast(WebViewActivity.this, "使用浏览器打开");
+        ToastUtils.showShort("使用浏览器打开");
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         Uri content_url = Uri.parse(urlString);

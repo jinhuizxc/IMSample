@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.base.BaseActivity;
 
@@ -80,7 +81,7 @@ public class GroupCreateActivity extends BaseActivity {
                     intent.putExtra("GROUPID", l);
                     startActivity(intent);
                 }else {
-                    showToast(GroupCreateActivity.this,"创建失败："+s);
+                    ToastUtils.showShort("创建失败："+s);
                 }
             }
         });

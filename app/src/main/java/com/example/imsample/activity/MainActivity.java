@@ -373,7 +373,7 @@ public class MainActivity extends BaseActivity {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        showLongToast(MainActivity.this,size);
+                        ToastUtils.showShort(size);
                         break;
                 }
 
@@ -434,7 +434,7 @@ public class MainActivity extends BaseActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 switch (i) {
                                     case 0:
-                                        showToast(MainActivity.this, "暂未开放");
+                                        ToastUtils.showShort("暂未开放");
                                         break;
                                     case 1:
                                         Intent intent = new Intent(MainActivity.this, AddFriendsActivity.class);

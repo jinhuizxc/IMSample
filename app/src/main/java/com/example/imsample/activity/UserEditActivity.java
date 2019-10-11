@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bigkoo.pickerview.TimePickerView;
+import com.blankj.utilcode.util.ToastUtils;
 import com.example.imsample.R;
 import com.example.imsample.base.BaseActivity;
 import com.example.imsample.base.Constant;
@@ -32,7 +33,6 @@ import com.example.imsample.entity.RegionBean;
 import com.example.imsample.framework.helper.SharedPrefHelper;
 import com.example.imsample.utils.StringUtils;
 import com.example.imsample.utils.TimeUtils;
-import com.google.gson.jpush.Gson;
 
 import org.json.JSONArray;
 
@@ -50,6 +50,7 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jmessage.support.google.gson.Gson;
 import cn.jpush.im.android.api.JMessageClient;
 import cn.jpush.im.android.api.model.UserInfo;
 import cn.jpush.im.api.BasicCallback;
@@ -171,10 +172,10 @@ public class UserEditActivity extends BaseActivity {
                     public void gotResult(int i, String s) {
                         dismissProgressDialog();
                         if (i == 0) {
-                            showToast(mActivity, "更新成功");
+                            ToastUtils.showShort("更新成功");
                             finish();
                         } else {
-                            showToast(mActivity, "更新失败：" + s);
+                            ToastUtils.showShort("更新失败" + s);
                         }
                     }
                 });
@@ -230,10 +231,10 @@ public class UserEditActivity extends BaseActivity {
                                 public void gotResult(int i, String s) {
                                     if (i == 0) {
                                         dismissProgressDialog();
-                                        showToast(mActivity, "上传成功");
+                                        ToastUtils.showShort("上传成功");
                                     } else {
                                         dismissProgressDialog();
-                                        showToast(mActivity, "上传失败：" + s);
+                                        ToastUtils.showShort("上传失败：" + s);
                                     }
                                 }
                             });

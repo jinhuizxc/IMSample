@@ -13,8 +13,9 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-    public MyPagerAdapter(FragmentManager fm, String[] mTitles) {
+    public MyPagerAdapter(FragmentManager fm, String[] titles) {
         super(fm);
+        this.mTitles = titles;
     }
 
     @Override
